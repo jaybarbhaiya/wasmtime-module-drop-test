@@ -13,9 +13,5 @@ criterion = "0.5.1"
 members = ["rust_wasm_module"]
 
 [[bench]]
-name = "with_criterion"
-harness = false
-
-[[bench]]
-name = "without_criterion"
+name = "create_module"
 harness = false

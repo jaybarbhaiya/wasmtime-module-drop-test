@@ -13,14 +13,14 @@ where
     let mut output = Vec::with_capacity(ITERATIONS);
     let start = Instant::now();
     output.extend(to_be_dropped.into_iter().map(|i| {
-        std::mem::drop(criterion::black_box(i));
+        std::mem::drop(black_box(i));
     }));
     let time = start.elapsed();
-    criterion::black_box(output);
+    black_box(output);
     let time_per_iter = time / ITERATIONS as u32;
     println!("bench {} took {:?} per iter", name, time_per_iter);
 }
 
 fn main() {
-    bench_create_module("drop module (big) (old)", create_module);
+    bench_create_module("wasmtime::Module drop module", create_module);
 }
