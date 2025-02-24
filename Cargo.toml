@@ -1,0 +1,21 @@
+[package]
+name = "wasmtime-module-drop-bench"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+wasmtime = "30.0.1"
+
+[dev-dependencies]
+criterion = "0.5.1"
+
+[workspace]
+members = ["rust_wasm_module"]
+
+[[bench]]
+name = "with_criterion"
+harness = false
+
+[[bench]]
+name = "without_criterion"
+harness = false

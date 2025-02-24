@@ -1,0 +1,35 @@
+name: Rust wasmtime benchmark
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  bench-on-ubuntu:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install minimal stable
+        uses: actions-rs/toolchain@v1
+        with:
+          profile: minimal
+          toolchain: stable
+      - name: Add wasm32-unknown-unknown target
+        run: rustup target add wasm32-unknown-unknown
+      - name: Run benchmark
+        run: cargo bench
+
+  bench-on-mac-os:
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install minimal stable
+        uses: actions-rs/toolchain@v1
+        with:
+          profile: minimal
+          toolchain: stable
+      - name: Add wasm32-unknown-unknown target
+        run: rustup target add wasm32-unknown-unknown
+      - name: Run benchmark
+        run: cargo bench
