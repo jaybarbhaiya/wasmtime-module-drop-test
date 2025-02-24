@@ -2,7 +2,7 @@ use std::{hint::black_box, time::Instant};
 
 use wasmtime_module_drop_bench::create_module;
 
-const ITERATIONS: usize = 5_000;
+const ITERATIONS: usize = 1_000;
 
 fn bench_create_module<F, O>(name: &'static str, mut func: F)
 where
