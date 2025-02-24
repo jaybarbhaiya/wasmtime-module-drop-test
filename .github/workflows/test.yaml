@@ -33,3 +33,17 @@ jobs:
         run: rustup target add wasm32-unknown-unknown
       - name: Run benchmark
         run: cargo bench
+
+  bench-on-windows:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install minimal stable
+        uses: actions-rs/toolchain@v1
+        with:
+          profile: minimal
+          toolchain: stable
+      - name: Add wasm32-unknown-unknown target
+        run: rustup target add wasm32-unknown-unknown
+      - name: Run benchmark
+        run: cargo bench
