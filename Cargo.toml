@@ -6,9 +6,6 @@ edition = "2021"
 [dependencies]
 wasmtime = "30.0.1"
 
-[dev-dependencies]
-criterion = "0.5.1"
-
 [workspace]
 members = ["rust_wasm_module"]
 
